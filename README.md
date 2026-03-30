@@ -12,7 +12,12 @@ The primary objective is to infer the internal dynamics of the device and the re
 ## Mathematical Formulation
 The hidden sequence of true states $X_n \in \{0,1\}$ is modeled as a Discrete-Time Markov Chain (DTMC). The transition matrix $P$ is defined by parameters $\alpha$ and $\beta$:
 
-$$P = \begin{pmatrix} 1-\alpha & \alpha \\ \beta & 1-\beta \end{pmatrix}$$
+$$
+P = \begin{pmatrix} 
+1-\alpha & \alpha \\ 
+\beta & 1-\beta 
+\end{pmatrix}
+$$
 
 The observed signal $Y_n$ is subject to random bit flips (noise) due to hardware imperfections or environmental interference. This relationship is modeled as:
 
