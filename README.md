@@ -24,12 +24,12 @@ where the error indicator is distributed as $I_n \sim Bernoulli(p)$.
 Because the posterior distribution is complex and high-dimensional, it cannot be sampled directly. Instead, the solution utilizes a Gibbs Sampler, an MCMC algorithm that samples each variable from its conditional distribution given the current values of all other variables.
 
 **Priors:** Uninformative Uniform priors on $[0, 1]$ (equivalent to a Beta distribution) were assigned to the transition probabilities. To ensure the model is identifiable and distinguishable from a system with inverted states, the Uniform prior for the noise parameter $p$ was constrained to the interval $[0, 0.25]$.
-***Conditional Updates:** Hidden states were updated via their "Markov blanket". The noise parameter $p$ was updated using rejection sampling: drawing candidates from the standard Beta distribution and rejecting any value $\ge 0.25$.
+**Conditional Updates:** Hidden states were updated via their "Markov blanket". The noise parameter $p$ was updated using rejection sampling: drawing candidates from the standard Beta distribution and rejecting any value $\ge 0.25$.
 
 ## Numerical Analysis & Results
 The algorithm was implemented in Python and tested on an artificial dataset of $n=5000$ points. 
 
-***MCMC Configuration:** The Gibbs sampler was run for 5,000 iterations, with the first 1,000 iterations discarded as a "burn-in" period to ensure the chain reached its stationary distribution.
+**MCMC Configuration:** The Gibbs sampler was run for 5,000 iterations, with the first 1,000 iterations discarded as a "burn-in" period to ensure the chain reached its stationary distribution.
 ***Parameter Recovery:** The results indicate an extremely accurate recovery of the parameters.The estimate for the noise $p$ ($0.051$) is exceptionally precise compared to the true value ($0.050$).
 ***Stationary Distribution:** We analyzed the stationary distribution of the system to estimate the long-run proportion of time the source is active. 
 
